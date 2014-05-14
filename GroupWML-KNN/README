@@ -1,0 +1,22 @@
+== How to build k-nn ==
+
+We will need the libirary in the path /home/lsds/forest/libi0/libi0/libi0, 
+first create a soft link by: ln -s /home/lsds/forest/libi0/libi0/libi0
+    $ make
+    
+== How to generate test data for k-nn ==
+
+    $ python gen-input.py <testing data size> <training data size>
+    The result will be save to knn-random-<testing data size>-<training data size>.input
+    
+== How to run k-nn on L0 ==
+
+To run kmeans with input file knn-random-100-100000.input, i.e. a training set with 100000 samples and test set with 100 samples, 
+you MUST first edit the knn.c (line 5-7) to sepcify the number of training samples, the number of testing samples and the number of classes. 
+After editing knn.c, build k-nn.
+
+    $ make
+    $ am run -n 2 knn.bin knn-random-100-100000.input
+
+== Documentation ==
+To see detailed discussion, please read report-comp6511a-knn.pdf
